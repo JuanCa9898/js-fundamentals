@@ -1,115 +1,22 @@
-function findLargestNumber(arr) {
-    let largest = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] > largest) {
-            largest = arr[i];
-        }
-    }
-    return largest;
-}
+let title = document.getElementById("title");
+let button = document.getElementById("changeBtn");
+let button2 = document.getElementById("resetBtn");
 
-let numbers = [100, 2, 45, 67, 3];
-//console.log(findLargestNumber(numbers));
+// Store original state
+let originalState = {
+    text: title.textContent,
+    background: document.body.style.backgroundColor
+};
 
-function getFirst(arr) {
-    return arr[0];
-}
+button.addEventListener("click", function() {
+    title.textContent = "You clicked the button!";
+    document.body.style.backgroundColor = "lightblue";
+    let newParagraph = document.createElement("p");
+    newParagraph.textContent = "New paragraph added!";
+    document.body.appendChild(newParagraph);
+});
 
-//console.log(getFirst([10, 20, 30]));
-
-function findSmallestNumber(arr) {
-    let smallest = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] < smallest) {
-            smallest = arr[i];
-        }
-    }
-    return smallest;
-}
-let numbers1 = [5, 12, 3, 20, 8];
-//console.log(findSmallestNumber(numbers1));
-
-function sumArray(arr) {
-    let total = 0;
-    for (let i =0 ; i < arr.length; i++) {
-        total += arr[i];
-    }
-    return total;
-}
-let numbers2 = [1, 2, 3, 4, 5];
-//console.log(sumArray(numbers2));
-
-function countEvens(arr) {
-    let count = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] % 2 == 0) {
-            count++;
-        }
-    }
-    return count;
-}
-let numbers3 = [1, 2, 3, 4, 6, 7, 8];
-//console.log(countEvens(numbers3));
-
-function printReverse(arr) {
-for (let i = arr.length -1; i >= 0; i--) {
-    console.log(arr[i]);
-}
-}
-let numbers4 = [1, 2, 3, 4, 5];
-//printReverse(numbers4);
-
-//Objects
-
-let person = {
-    firstName : "Juan",
-    lastName : "Restrepo",
-    age : 27,
-    profession : "Engineer"
-}
-
-person.age = 28;
-person.country = "Colombia";
-
-//console.log(person);
-
-function describePerson (person) {
-    return person.firstName + " is " + person.age + " years old.";
-}
-
-//console.log(describePerson(person));
-
-let students = [
-    { name: "Ana", score: 90 },
-    { name: "Luis", score: 75 },
-    { name: "Maria", score: 95 }
-];
-
-//for (let i = 0; i < students.length; i++) {
-//    console.log(students[i].name + " scored " + students[i].score);
-//}
-
-function findTopStudent(students) {
-    let topStudent = students[0];
-    for (let i = 0; i < students.length; i++) {
-        if (students[i].score > topStudent.score) {
-            topStudent = students[i];
-        }
-    }
-    return "The top student is " +topStudent.name + " with a score of " + topStudent.score;
-}
-
-//console.log(findTopStudent(students));
-
-/*students.forEach(student => {
-    console.log(student.name + " scored " + student.score);
-});*/
-
-/*let studentNames = students.map(student => student.name);
-console.log(studentNames);*/
-
-/*let highScores = students.filter(student => student.score >= 90);
-console.log(highScores.map(student => student.name));*/
-
-let averageScore = students.reduce((total, students) => total + students.score, 0) / students.length;
-console.log("The average score is " + averageScore);
+button2.addEventListener("click", function(){
+    title.textContent = originalState.text;
+    document.body.style.backgroundColor = originalState.background;
+})
