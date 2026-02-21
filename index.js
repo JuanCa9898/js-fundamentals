@@ -99,4 +99,17 @@ function findTopStudent(students) {
     return "The top student is " +topStudent.name + " with a score of " + topStudent.score;
 }
 
-console.log(findTopStudent(students));
+//console.log(findTopStudent(students));
+
+/*students.forEach(student => {
+    console.log(student.name + " scored " + student.score);
+});*/
+
+/*let studentNames = students.map(student => student.name);
+console.log(studentNames);*/
+
+/*let highScores = students.filter(student => student.score >= 90);
+console.log(highScores.map(student => student.name));*/
+
+let averageScore = students.reduce((total, students) => total + students.score, 0) / students.length;
+console.log("The average score is " + averageScore);
